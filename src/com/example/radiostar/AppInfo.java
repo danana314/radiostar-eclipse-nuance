@@ -1,0 +1,30 @@
+package com.example.radiostar;
+
+public class AppInfo {
+    public static final String SpeechKitServer = "sandbox.nmdp.nuancemobility.net";
+
+    public static final int SpeechKitPort = 443;
+    
+    public static final boolean SpeechKitSsl = false;
+
+    public static final String SpeechKitAppId = "NMDPTRIAL_adnaan20131016183916";
+
+    public static final byte[] SpeechKitApplicationKey = {
+    	(byte)0xdc, (byte)0x28, (byte)0x25, (byte)0x5a, 
+    	(byte)0xab, (byte)0x94, (byte)0x0b, (byte)0xfe, 
+    	(byte)0xf4, (byte)0x84, (byte)0x6d, (byte)0x60, 
+    	(byte)0xd5, (byte)0x0f, (byte)0x5f, (byte)0x00, 
+    	(byte)0x51, (byte)0xc2, (byte)0xc8, (byte)0x67, 
+    	(byte)0x45, (byte)0x31, (byte)0x0f, (byte)0xf9, 
+    	(byte)0x1d, (byte)0xdb, (byte)0xcb, (byte)0x25, 
+    	(byte)0x0f, (byte)0x3a, (byte)0x08, (byte)0xeb, 
+    	(byte)0x62, (byte)0x2d, (byte)0x45, (byte)0x0d, 
+    	(byte)0xc1, (byte)0x51, (byte)0x0c, (byte)0xb6, 
+    	(byte)0xd5, (byte)0x79, (byte)0x16, (byte)0xaa, 
+    	(byte)0x88, (byte)0x76, (byte)0xaa, (byte)0xd9, 
+    	(byte)0x38, (byte)0x72, (byte)0x40, (byte)0x7e, 
+    	(byte)0xa3, (byte)0x50, (byte)0x77, (byte)0xc0, 
+    	(byte)0x2b, (byte)0x42, (byte)0xe5, (byte)0x3a, 
+    	(byte)0x7c, (byte)0xed, (byte)0x25, (byte)0xdf
+    };
+}
