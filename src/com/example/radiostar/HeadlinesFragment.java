@@ -23,27 +23,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class HeadlinesFragment extends ListFragment {
-    OnHeadlineSelectedListener mCallback;
+    OnHeadlineSelectedListener listener;
 
     // The container Activity must implement this interface so the frag can deliver messages
     public interface OnHeadlineSelectedListener {
         /** Called by HeadlinesFragment when a list item is selected */
         public void onArticleSelected(int position);
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        /*
-        // We need to use a different list item layout for devices older than Honeycomb
-        int layout = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ?
-                android.R.layout.simple_list_item_activated_1 : android.R.layout.simple_list_item_1;
-        */
-        // Create an array adapter for the list view, using the Ipsum headlines array
-        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_activated_1, Ipsum.getTitles()));
-    }
-
+    
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -51,19 +38,61 @@ public class HeadlinesFragment extends ListFragment {
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception.
         try {
-            mCallback = (OnHeadlineSelectedListener) activity;
+            listener = (OnHeadlineSelectedListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");
         }
     }
+    
+    public void setDataSource(String[] titles) {
+    	// Create an array adapter for the list view, using the Ipsum headlines array
+        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_activated_1, titles));
+    }
+    
+    @Override
+    public void onStart() {
+    	super.onStart();
+    	getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+    }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        // Notify the parent activity of selected item
-        mCallback.onArticleSelected(position);
-        
-        // Set the item as checked to be highlighted when in two-pane layout
+    	// Set the item as checked to be highlighted
         getListView().setItemChecked(position, true);
+        
+    	// Notify the parent activity of selected item
+        listener.onArticleSelected(position);
+        
+        
+    }    
+    
+    public int getSelectedPosition() {
+    	return getListView().getCheckedItemPosition();
+    }
+    
+    public boolean selectNext() {
+    	int posNext = getListView().getCheckedItemPosition() + 1;
+    	int count = getListAdapter().getCount();
+    	if (posNext < count) {
+    		getListView().setItemChecked(posNext, true);
+    		listener.onArticleSelected(posNext);
+    		return true;
+    	} else {
+    		getListView().setItemChecked(posNext - 1, false);
+    		return false;
+    	}
+    }
+    
+    public boolean selectPrevious() {
+    	int posPrev = getListView().getCheckedItemPosition() - 1;
+    	if (posPrev >= 0) {
+    		getListView().setItemChecked(posPrev, true);
+    		listener.onArticleSelected(posPrev);
+    		return true;
+    	} else {
+    		getListView().setItemChecked(posPrev + 1, false);
+    		return false;
+    	}
     }
 }

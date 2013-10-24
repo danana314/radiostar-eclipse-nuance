@@ -11,6 +11,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -45,29 +46,85 @@ public class TtsView extends Activity implements OnPlaybackControlledListener,
 			fm.beginTransaction().add(_vocalizerFragment, "vocalizer").commit();
 		}
 	}
-
+	
 	@Override
-	public void onPlayPressed() {
-		EditText et = (EditText) findViewById(R.id.text_ttsSource);
-		String text = et.getText().toString();
+	protected void onStart() {
+		super.onStart();
+		
+		// Load data source
+		HeadlinesFragment headlinesFrag = (HeadlinesFragment) getFragmentManager()
+				.findFragmentById(R.id.headlinesList);
+		if (headlinesFrag != null) {
+			headlinesFrag.setDataSource(Ipsum.getTitles());
+		}
+		
+	}
+
+	// Play article at position
+	private void play(int position) {
+		PlaybackControlFragment controlFrag = (PlaybackControlFragment) getFragmentManager()
+				.findFragmentById(R.id.playbackcontrol);
+		if (controlFrag != null) {
+			controlFrag.setPlaying(true);
+		}
+
+		String text = Ipsum.getTitle(position) + "\n\n"
+				+ Ipsum.getDescription(position);
 		_vocalizerFragment.speak(text);
 	}
 
 	@Override
+	public void onArticleSelected(int position) {
+		// Stop current article
+		_vocalizerFragment.cancel();
+
+		play(position);
+	}
+
+	@Override
+	public void onPlayPressed() {
+		HeadlinesFragment headlinesFrag = (HeadlinesFragment) getFragmentManager()
+				.findFragmentById(R.id.headlinesList);
+		if (headlinesFrag != null) {
+			int currentPos = headlinesFrag.getSelectedPosition();
+			if (currentPos != AdapterView.INVALID_POSITION) {
+				play(currentPos);
+			} else {
+				headlinesFrag.selectNext();
+			}
+		}
+	}
+
+	@Override
 	public void onStopPressed() {
+		// Stop current article
 		_vocalizerFragment.cancel();
 	}
 
 	@Override
 	public void onNextPressed() {
-		// TODO Auto-generated method stub
+		// Stop current article
+		_vocalizerFragment.cancel();
 
+		// Select next article
+		HeadlinesFragment headlinesFrag = (HeadlinesFragment) getFragmentManager()
+				.findFragmentById(R.id.headlinesList);
+		if (headlinesFrag != null) {
+			headlinesFrag.selectNext();
+		}
 	}
 
 	@Override
 	public void onPreviousPressed() {
-		// TODO Auto-generated method stub
+		// Stop current article
+		_vocalizerFragment.cancel();
 
+		// Select previous article
+		HeadlinesFragment headlinesFrag = (HeadlinesFragment) getFragmentManager()
+				.findFragmentById(R.id.headlinesList);
+		if (headlinesFrag != null) {
+			headlinesFrag.selectPrevious();
+		}
 	}
 
 	@Override
@@ -88,11 +145,5 @@ public class TtsView extends Activity implements OnPlaybackControlledListener,
 			controlFrag.setPlaying(false);
 		}
 		Log.v("TTS", "onSpeakingDone: " + controlFrag.toString());
-	}
-
-	@Override
-	public void onArticleSelected(int position) {
-		EditText et = (EditText) findViewById(R.id.text_ttsSource);
-		et.setText(Ipsum.getTitle(position) + "\n\n" + Ipsum.getDescription(position));
 	}
 }

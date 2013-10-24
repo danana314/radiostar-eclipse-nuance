@@ -52,10 +52,6 @@ public class PlaybackControlFragment extends Fragment implements
 			ImageButton ib = (ImageButton) v.findViewById(controlID);
 			ib.setOnClickListener(this);
 		}
-		
-		// Animation
-		
-
 		return v;
 	}
 
@@ -97,18 +93,32 @@ public class PlaybackControlFragment extends Fragment implements
 			ib = (ImageButton) getView().findViewById(R.id.play);
 			ib.setVisibility(View.INVISIBLE);
 
-			// Make stop button visible
+			// Make prev, stop, next buttons visible
+			ib = (ImageButton) getView().findViewById(R.id.previous);
+			ib.setVisibility(View.VISIBLE);
+			
 			ib = (ImageButton) getView().findViewById(R.id.stop);
+			ib.setVisibility(View.VISIBLE);
+			
+			ib = (ImageButton) getView().findViewById(R.id.next);
 			ib.setVisibility(View.VISIBLE);
 			
 			showLoadingStopButton(true);	// Indicate speech is loading
 			
 			Log.v("PlaybackControlFragment", "setPlaying: playing");
 		} else {
+			// Show play button
 			ib = (ImageButton) getView().findViewById(R.id.play);
 			ib.setVisibility(View.VISIBLE);
-
+			
+			// Hide prev, stop, and next buttons
+			ib = (ImageButton) getView().findViewById(R.id.previous);
+			ib.setVisibility(View.INVISIBLE);
+			
 			ib = (ImageButton) getView().findViewById(R.id.stop);
+			ib.setVisibility(View.INVISIBLE);
+			
+			ib = (ImageButton) getView().findViewById(R.id.next);
 			ib.setVisibility(View.INVISIBLE);
 			
 			Log.v("PlaybackControlFragment", "setPlaying: stopped");
