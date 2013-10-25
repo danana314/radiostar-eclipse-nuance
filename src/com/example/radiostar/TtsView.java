@@ -6,16 +6,10 @@ import com.example.radiostar.VocalizerFragment.OnSpeakingListener;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 public class TtsView extends Activity implements OnPlaybackControlledListener,
 		OnSpeakingListener, OnHeadlineSelectedListener {

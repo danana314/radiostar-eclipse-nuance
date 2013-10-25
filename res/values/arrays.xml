@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_vocalizerVoice_entries">
+        <item>Arabic Male: Maged</item>
+        <item>Australian English Female: Karen</item>
+        <item>Australian English Male: Lee</item>
+        <item>US English Female: Allison</item>
+        <item>US English Female: Carol</item>
+        <item>US English Female: Samantha</item>
+        <item>US English Male: Tom</item>
+        <item>UK English Female: Serena</item>
+        <item>UK English Male: Daniel</item>
+        <item>Bahasa (Indonesia) Female: Damayanti</item>
+        <item>Basque Female: Arantxa</item>
+        <item>Belgian Dutch Female: Ellen</item>
+        <item>Cantonese Female: Sin-Ji</item>
+        <item>Catalan Female: Nuria</item>
+        <item>Czech Female: Zuzana</item>
+        <item>Danish Female: Ida</item>
+        <item>Dutch Male: Xander</item>
+        <item>Dutch Female: Claire</item>
+        <item>Belgian Dutch Female: Ellen</item>
+        <item>Finnish Female: Mikko</item>
+        <item>French Female: Virginie</item>
+        <item>French Male: Sebastien</item>
+        <item>French Male: Thomas</item>
+        <item>Canadian French Female: Julie</item>
+        <item>Canadian French Male: Felix</item>
+        <item>German Female: Anna</item>
+        <item>German Female: Steffi</item>
+        <item>German Male: Yannick</item>
+        <item>Greek Male: Alexandros</item>
+        <item>Greek Female: Melina</item>
+        <item>Hindi Female: Lekha</item>
+        <item>Hungarian Female: Eszter</item>
+        <item>Indian English Female: Sangeeta</item>
+        <item>Irish English Female: Moira</item>
+        <item>Italian Female: Silvia</item>
+        <item>Italian Male: Paolo</item>
+        <item>Japanese Female: Kyoko</item>
+        <item>Korean Female: Narae</item>
+        <item>Mandarin Female: Tian-Tian</item>
+        <item>Mandarin Female: Ting-Ting</item>
+        <item>Taiwanese Mandarin Female: Mei-Jia</item>
+        <item>Taiwanese Mandarin Female: Ya-Ling</item>
+        <item>Norwegian Female: Stine</item>
+        <item>Polish Female: Agata</item>
+        <item>Portuguese Female: Joana</item>
+        <item>Portuguese Braz. Female: Raquel</item>
+        <item>Romanian Female: Simona</item>
+        <item>Russian Female: Milena</item>
+        <item>Scottish English Female: Fiona</item>
+        <item>Slovak Female: Laura</item>
+        <item>South African English Female: Tessa</item>
+        <item>Spanish Castilian Female: Monica</item>
+        <item>Spanish Castilian Male: Diego</item>
+        <item>Spanish Mexican Female: Paulina</item>
+        <item>Spanish Mexican Male: Javier</item>
+        <item>Swedish Female: Alva</item>
+        <item>Swedish Male: Oskar</item>
+        <item>Thai Female: Narisa</item>
+        <item>Turkish Male: Cem</item>
+        <item>Turkish Female: Aylin</item>
+    </string-array>
+    <string-array name="pref_vocalizerVoice_entryValues">
+        <item>Maged</item>
+        <item>Karen</item>
+        <item>Lee</item>
+        <item>Allison</item>
+        <item>Carol</item>
+        <item>Samantha</item>
+        <item>Tom</item>
+        <item>Serena</item>
+        <item>Daniel</item>
+        <item>Damayanti</item>
+        <item>Arantxa</item>
+        <item>Ellen</item>
+        <item>Sin-Ji</item>
+        <item>Nuria</item>
+        <item>Zuzana</item>
+        <item>Ida</item>
+        <item>Xander</item>
+        <item>Claire</item>
+        <item>Ellen</item>
+        <item>Mikko</item>
+        <item>Virginie</item>
+        <item>Sebastien</item>
+        <item>Thomas</item>
+        <item>Julie</item>
+        <item>Felix</item>
+        <item>Anna</item>
+        <item>Steffi</item>
+        <item>Yannick</item>
+        <item>Alexandros</item>
+        <item>Melina</item>
+        <item>Lekha</item>
+        <item>Eszter</item>
+        <item>Sangeeta</item>
+        <item>Moira</item>
+        <item>Silvia</item>
+        <item>Paolo</item>
+        <item>Kyoko</item>
+        <item>Narae</item>
+        <item>Tian-Tian</item>
+        <item>Ting-Ting</item>
+        <item>Mei-Jia</item>
+        <item>Ya-Ling</item>
+        <item>Stine</item>
+        <item>Agata</item>
+        <item>Joana</item>
+        <item>Raquel</item>
+        <item>Simona</item>
+        <item>Milena</item>
+        <item>Fiona</item>
+        <item>Laura</item>
+        <item>Tessa</item>
+        <item>Monica</item>
+        <item>Diego</item>
+        <item>Paulina</item>
+        <item>Javier</item>
+        <item>Alva</item>
+        <item>Oskar</item>
+        <item>Narisa</item>
+        <item>Cem</item>
+        <item>Aylin</item>
+    </string-array>
+
+</resources>

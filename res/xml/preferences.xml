@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ListPreference
+        android:defaultValue="@string/pref_vocalizerVoice_default"
+        android:key="pref_vocalizerVoice"
+        android:title="@string/pref_vocalizerVoice_title"
+        android:persistent="true" 
+        android:entries="@array/pref_vocalizerVoice_entries"
+        android:entryValues="@array/pref_vocalizerVoice_entryValues" />
+
+</PreferenceScreen>
