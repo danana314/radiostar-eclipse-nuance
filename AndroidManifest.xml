@@ -8,16 +8,11 @@
         android:minSdkVersion="13"
         android:targetSdkVersion="17" />
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.RECORD_AUDIO" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.VIBRATE" >
-    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".RadioStarApplication"
@@ -27,24 +22,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <!-- Splash screen -->
-        <activity
-            android:name="com.example.radiostar.SplashScreen"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> 
-
-        <!-- Main activity -->
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+		<!--TTS View -->
         <activity
             android:name=".TtsView"
             android:label="@string/app_name" >

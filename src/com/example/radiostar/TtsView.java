@@ -4,11 +4,13 @@ import com.example.radiostar.HeadlinesFragment.OnHeadlineSelectedListener;
 import com.example.radiostar.PlaybackControlFragment.OnPlaybackControlledListener;
 import com.example.radiostar.VocalizerFragment.OnSpeakingListener;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.widget.AdapterView;
 
 public class TtsView extends Activity implements OnPlaybackControlledListener,
@@ -28,6 +30,9 @@ public class TtsView extends Activity implements OnPlaybackControlledListener,
 															// Volume' applies
 															// to this activity
 		setContentView(R.layout.tts);
+		
+		ActionBar actionBar = getActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 
 		FragmentManager fm = getFragmentManager();
 		_vocalizerFragment = (VocalizerFragment) fm
@@ -52,6 +57,13 @@ public class TtsView extends Activity implements OnPlaybackControlledListener,
 			headlinesFrag.setDataSource(Ipsum.getTitles());
 		}
 		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	// Play article at position

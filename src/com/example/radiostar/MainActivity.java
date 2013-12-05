@@ -1,6 +1,7 @@
 package com.example.radiostar;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Intent;
@@ -10,36 +11,33 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+	// Splash screen timer
+    private static int SPLASH_TIME_OUT = 3000;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-		final Button ttsButton = (Button) findViewById(R.id.btn_tts);
-		final Button settingsButton = (Button) findViewById(R.id.btn_settings);
-		Button.OnClickListener l = new Button.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (v == ttsButton) {
-					Intent intent = new Intent(v.getContext(), TtsView.class);
-					MainActivity.this.startActivity(intent);
-				} else if (v == settingsButton) {
-					Intent intent = new Intent(v.getContext(), SettingsActivity.class);
-					MainActivity.this.startActivity(intent);
-				}
-			}
-		};
-
-		ttsButton.setOnClickListener(l);
-		settingsButton.setOnClickListener(l);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		new Handler().postDelayed(new Runnable() {
+			 
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+ 
+            @Override
+            public void run() {
+                // This method will be executed once the timer is over
+                // Start your app main activity
+                Intent i = new Intent(MainActivity.this, TtsView.class);
+                MainActivity.this.startActivity(i);
+ 
+                // close this activity
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
 	}
 
 	@Override
